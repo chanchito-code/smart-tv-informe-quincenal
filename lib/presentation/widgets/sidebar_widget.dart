@@ -25,7 +25,7 @@ class SidebarWidget extends StatelessWidget {
         color: Colors.white, // Fondo Blanco Solicitado
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 10,
             offset: const Offset(4, 0), // Sombra sutil a la derecha
           ),
@@ -54,7 +54,7 @@ class SidebarWidget extends StatelessWidget {
             ),
           ),
 
-          Divider(color: Colors.grey.withOpacity(0.2), height: 1),
+          Divider(color: Colors.grey.withValues(alpha: 0.2), height: 1),
 
           Expanded(
             child: ListView.builder(
@@ -73,99 +73,103 @@ class SidebarWidget extends StatelessWidget {
                       ), // Hover grisáceo al dar clic
                       highlightColor: Colors.transparent,
                     ),
-                    child: ExpansionTile(
-                      iconColor: const Color(0xFF2B6CB0),
-                      collapsedIconColor: const Color(0xFF718096),
-                      title: Row(
-                        children: [
-                          Icon(
-                            item.icon,
-                            color: const Color(0xFF4A5568),
-                            size: 24.sp,
-                          ),
-                          SizedBox(width: 15.w),
-                          Expanded(
-                            child: Text(
-                              item.title,
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                              style: TextStyle(
-                                color: const Color(
-                                  0xFF2D3748,
-                                ), // Texto oscuro legible en fondo blanco
-                                fontSize: 26.sp,
-                                fontWeight: FontWeight.w600,
+                    child: Material(
+                      color: Colors.transparent,
+                      child: ExpansionTile(
+                        iconColor: const Color(0xFF2B6CB0),
+                        collapsedIconColor: const Color(0xFF718096),
+                        title: Row(
+                          children: [
+                            Icon(
+                              item.icon,
+                              color: const Color(0xFF4A5568),
+                              size: 24.sp,
+                            ),
+                            SizedBox(width: 15.w),
+                            Expanded(
+                              child: Text(
+                                item.title,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                  color: const Color(
+                                    0xFF2D3748,
+                                  ), // Texto oscuro legible en fondo blanco
+                                  fontSize: 26.sp,
+                                  fontWeight: FontWeight.w600,
+                                ),
                               ),
                             ),
-                          ),
-                        ],
-                      ),
-                      children: item.subMenu!.map((subItem) {
-                        final isSelected = currentSectionTitle == subItem.title;
-                        return Padding(
-                          padding: EdgeInsets.only(
-                            left: 20.w,
-                            top: 3.h,
-                            bottom: 3.h,
-                            right: 15.w,
-                          ),
-                          child: InkWell(
-                            borderRadius: BorderRadius.circular(8.r),
-                            onTap: () => onOptionSelected(subItem.title),
-                            child: AnimatedContainer(
-                              duration: const Duration(milliseconds: 150),
-                              padding: EdgeInsets.symmetric(
-                                horizontal: 16.w,
-                                vertical: 12.h,
-                              ),
-                              decoration: BoxDecoration(
-                                // Efecto Hover/Active: Fondo azul claro si está seleccionado
-                                color: isSelected
-                                    ? const Color(0xFFEBF8FF)
-                                    : Colors.transparent,
-                                borderRadius: BorderRadius.circular(8.r),
-                                // Línea indicadora izquierda gruesa al estar activo
-                                border: isSelected
-                                    ? const Border(
-                                        left: BorderSide(
-                                          color: Color(0xFF2B6CB0),
-                                          width: 4,
+                          ],
+                        ),
+                        children: item.subMenu!.map((subItem) {
+                          final isSelected =
+                              currentSectionTitle == subItem.title;
+                          return Padding(
+                            padding: EdgeInsets.only(
+                              left: 20.w,
+                              top: 3.h,
+                              bottom: 3.h,
+                              right: 15.w,
+                            ),
+                            child: InkWell(
+                              borderRadius: BorderRadius.circular(8.r),
+                              onTap: () => onOptionSelected(subItem.title),
+                              child: AnimatedContainer(
+                                duration: const Duration(milliseconds: 150),
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 16.w,
+                                  vertical: 12.h,
+                                ),
+                                decoration: BoxDecoration(
+                                  // Efecto Hover/Active: Fondo azul claro si está seleccionado
+                                  color: isSelected
+                                      ? const Color(0xFFEBF8FF)
+                                      : Colors.transparent,
+                                  borderRadius: BorderRadius.circular(8.r),
+                                  // Línea indicadora izquierda gruesa al estar activo
+                                  border: isSelected
+                                      ? const Border(
+                                          left: BorderSide(
+                                            color: Color(0xFF2B6CB0),
+                                            width: 4,
+                                          ),
+                                        )
+                                      : null,
+                                ),
+                                child: Row(
+                                  children: [
+                                    Icon(
+                                      subItem.icon,
+                                      color: isSelected
+                                          ? const Color(0xFF2B6CB0)
+                                          : const Color(0xFF718096),
+                                      size: 20.sp,
+                                    ),
+                                    SizedBox(width: 12.w),
+                                    Expanded(
+                                      child: Text(
+                                        subItem.title,
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: TextStyle(
+                                          color: isSelected
+                                              ? const Color(0xFF2B6CB0)
+                                              : const Color(0xFF4A5568),
+                                          fontSize: 26.sp,
+                                          fontWeight: isSelected
+                                              ? FontWeight.bold
+                                              : FontWeight.normal,
                                         ),
-                                      )
-                                    : null,
-                              ),
-                              child: Row(
-                                children: [
-                                  Icon(
-                                    subItem.icon,
-                                    color: isSelected
-                                        ? const Color(0xFF2B6CB0)
-                                        : const Color(0xFF718096),
-                                    size: 20.sp,
-                                  ),
-                                  SizedBox(width: 12.w),
-                                  Expanded(
-                                    child: Text(
-                                      subItem.title,
-                                      maxLines: 1,
-                                      overflow: TextOverflow.ellipsis,
-                                      style: TextStyle(
-                                        color: isSelected
-                                            ? const Color(0xFF2B6CB0)
-                                            : const Color(0xFF4A5568),
-                                        fontSize: 26.sp,
-                                        fontWeight: isSelected
-                                            ? FontWeight.bold
-                                            : FontWeight.normal,
                                       ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
-                          ),
-                        );
-                      }).toList(),
+                          );
+                        }).toList(),
+                      ),
                     ),
                   );
                 } else {

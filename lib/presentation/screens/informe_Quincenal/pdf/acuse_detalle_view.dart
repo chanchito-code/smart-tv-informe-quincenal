@@ -43,7 +43,7 @@ class AcuseDetalleView extends StatelessWidget {
               borderRadius: BorderRadius.circular(12.r),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.05),
+                  color: Colors.black.withValues(alpha: 0.05),
                   blurRadius: 15,
                   offset: const Offset(0, 5),
                 ),
@@ -133,7 +133,9 @@ class AcuseDetalleView extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: const Color(0xFFF7FAFC),
                     borderRadius: BorderRadius.circular(8.r),
-                    border: Border.all(color: Colors.grey.withOpacity(0.3)),
+                    border: Border.all(
+                      color: Colors.grey.withValues(alpha: 0.3),
+                    ),
                   ),
                   child: Text(
                     'MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC3x9Vp8qZ... Cadena Oficial Encriptada ... 7a:8b:9c:1d:2e:3f:4a:5b:6c:7d:8e:9f:0a:1b:2c:3d:4e:5f:6a:7b:8c:9d:0e:1f',
@@ -155,10 +157,16 @@ class AcuseDetalleView extends StatelessWidget {
                     ElevatedButton.icon(
                       onPressed: () => Navigator.of(context).pop(),
                       icon: const Icon(Icons.arrow_back, color: Colors.white),
-                      label: const Text('Volver al Listado', style: TextStyle(color: Colors.white)),
+                      label: const Text(
+                        'Volver al Listado',
+                        style: TextStyle(color: Colors.white),
+                      ),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFF2B6CB0),
-                        padding: EdgeInsets.symmetric(horizontal: 25.w, vertical: 12.h),
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 25.w,
+                          vertical: 12.h,
+                        ),
                       ),
                     ),
                   ],

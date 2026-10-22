@@ -35,7 +35,7 @@ class _EntesPublicosViewState extends State<EntesPublicosView> {
                 borderRadius: BorderRadius.circular(12.r),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.03),
+                    color: Colors.black.withValues(alpha: 0.03),
                     blurRadius: 10,
                     offset: const Offset(0, 4),
                   ),
@@ -255,7 +255,7 @@ class _EntesPublicosViewState extends State<EntesPublicosView> {
                 borderRadius: BorderRadius.circular(12.r),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.03),
+                    color: Colors.black.withValues(alpha: 0.03),
                     blurRadius: 10,
                     offset: const Offset(0, 4),
                   ),
@@ -294,7 +294,7 @@ class _EntesPublicosViewState extends State<EntesPublicosView> {
                             ),
                             decoration: BoxDecoration(
                               border: Border.all(
-                                color: Colors.grey.withOpacity(0.4),
+                                color: Colors.grey.withValues(alpha: 0.4),
                               ),
                               borderRadius: BorderRadius.circular(4.r),
                             ),
@@ -338,7 +338,7 @@ class _EntesPublicosViewState extends State<EntesPublicosView> {
                             height: 35.h,
                             decoration: BoxDecoration(
                               border: Border.all(
-                                color: Colors.grey.withOpacity(0.4),
+                                color: Colors.grey.withValues(alpha: 0.4),
                               ),
                               borderRadius: BorderRadius.circular(4.r),
                             ),
@@ -499,7 +499,7 @@ class _EntesPublicosViewState extends State<EntesPublicosView> {
       padding: EdgeInsets.symmetric(horizontal: 15.w),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8.r),
-        border: Border.all(color: Colors.grey.withOpacity(0.4)),
+        border: Border.all(color: Colors.grey.withValues(alpha: 0.4)),
       ),
       child: DropdownButtonHideUnderline(
         child: DropdownButton<String>(
@@ -543,7 +543,7 @@ class _EntesPublicosViewState extends State<EntesPublicosView> {
           borderRadius: BorderRadius.circular(12.r),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withOpacity(0.03),
+              color: Colors.black.withValues(alpha: 0.03),
               blurRadius: 10,
               offset: const Offset(0, 4),
             ),
@@ -638,7 +638,7 @@ class _EntesPublicosViewState extends State<EntesPublicosView> {
       padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 8.h),
       decoration: BoxDecoration(
         color: isActive ? const Color(0xFF2B6CB0) : Colors.transparent,
-        border: Border.all(color: Colors.grey.withOpacity(0.3)),
+        border: Border.all(color: Colors.grey.withValues(alpha: 0.3)),
         borderRadius: BorderRadius.circular(4.r),
       ),
       child: Text(

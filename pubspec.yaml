@@ -1,5 +1,5 @@
 name: smart_tv1
-description: "A new Flutter project."
+description: "Dashboard para Smart TV del Informe Quincenal del SIRIS."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -30,6 +30,7 @@ environment:
 dependencies:
   flutter_screenutil: ^5.9.0
 
+  http: ^1.2.0
 
   flutter:
     sdk: flutter

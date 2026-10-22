@@ -26,6 +26,14 @@ class MainLayout extends StatefulWidget {
 class _MainLayoutState extends State<MainLayout> {
   String _currentSectionTitle = 'Panel Informativo';
 
+  @override
+  void initState() {
+    super.initState();
+    _currentSectionTitle = widget.userType == UserType.admin
+        ? 'Panel Informativo'
+        : 'Mis Tareas';
+  }
+
   // Listas de menús configuradas para Administrador
   final List<MenuItemModel> _adminMenu = const [
     MenuItemModel(title: 'Panel Informativo', icon: Icons.dashboard),

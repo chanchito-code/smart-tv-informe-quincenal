@@ -42,7 +42,7 @@ class AcuseEnteView extends StatelessWidget {
               borderRadius: BorderRadius.circular(12.r),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.05),
+                  color: Colors.black.withValues(alpha: 0.05),
                   blurRadius: 15,
                   offset: const Offset(0, 5),
                 ),
@@ -126,7 +126,9 @@ class AcuseEnteView extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: const Color(0xFFF7FAFC),
                     borderRadius: BorderRadius.circular(8.r),
-                    border: Border.all(color: Colors.grey.withOpacity(0.3)),
+                    border: Border.all(
+                      color: Colors.grey.withValues(alpha: 0.3),
+                    ),
                   ),
                   child: Text(
                     'SHA256: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855... Certificado por Ente Autónomo de Fiscalización.',
@@ -148,10 +150,16 @@ class AcuseEnteView extends StatelessWidget {
                     ElevatedButton.icon(
                       onPressed: () => Navigator.of(context).pop(),
                       icon: const Icon(Icons.arrow_back, color: Colors.white),
-                      label: const Text('Regresar al Panel', style: TextStyle(color: Colors.white)),
+                      label: const Text(
+                        'Regresar al Panel',
+                        style: TextStyle(color: Colors.white),
+                      ),
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFF2B6CB0),
-                        padding: EdgeInsets.symmetric(horizontal: 25.w, vertical: 12.h),
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 25.w,
+                          vertical: 12.h,
+                        ),
                       ),
                     ),
                   ],
